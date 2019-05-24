@@ -307,9 +307,12 @@ body {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 a {
-  color: #777;
+  color: #669bff;
 }
 a:hover {
+  color: #777;
+}
+a:visited {
   color: #bbb;
 }
 .container {
