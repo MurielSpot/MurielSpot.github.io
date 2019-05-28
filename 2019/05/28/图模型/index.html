@@ -77,26 +77,62 @@
     
     
     <h2 class="post-title">
-        Hello World
+        图模型
     </h2>
     <ul class="post-date">
         <li>
-            2019-05-22
+            2019-05-28
         </li>
         <li>
             ZGJ
         </li>
     </ul>
     <div class="post-content">
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2><span id="quick-start">Quick Start</span></h2><h3><span id="create-a-new-post">Create a new post</span></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3><span id="run-server">Run server</span></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3><span id="generate-static-files">Generate static files</span></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3><span id="deploy-to-remote-sites">Deploy to remote sites</span></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <!-- toc -->
+<ul>
+<li><a href="#图">图</a><ul>
+<li><a href="#图的三类研究">图的三类研究</a></li>
+<li><a href="#模型">模型</a><ul>
+<li><a href="#考虑网络结构">考虑网络结构</a></li>
+<li><a href="#考虑结构和其他信息">考虑结构和其他信息</a></li>
+<li><a href="#dl">DL</a></li>
+<li><a href="#gan">GAN</a></li>
+<li><a href="#其他">其他</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<h1><span id="图">图</span></h1><h2><span id="图的三类研究">图的三类研究</span></h2><ol>
+<li>经典的graph算法：生成树算法，最短路径算法，复杂一点的二分图匹配，费用流问题等等。</li>
+<li>概率图模型：将条件概率表达为图结构，并进一步挖掘，典型的有条件随机场等。</li>
+<li>图神经网络：研究图结构数据挖掘的问题，典型的有Graph Embedding，Graph CNN等。</li>
+</ol>
+<h2><span id="模型">模型</span></h2><h3><span id="考虑网络结构">考虑网络结构</span></h3><ol>
+<li>deepwalk</li>
+<li>LINE</li>
+<li>GraRep</li>
+<li>node2vec</li>
+<li>struc2vec</li>
+<li>GraphSAGE</li>
+</ol>
+<h3><span id="考虑结构和其他信息">考虑结构和其他信息</span></h3><ol>
+<li>CENE</li>
+<li>CANE</li>
+<li>Trans-Net</li>
+</ol>
+<h3><span id="dl">DL</span></h3><ol>
+<li>GCN</li>
+<li>SDNE</li>
+</ol>
+<h3><span id="gan">GAN</span></h3><ol>
+<li>GraphGAN</li>
+<li>ANE</li>
+</ol>
+<h3><span id="其他">其他</span></h3><ol>
+<li>Word2vec</li>
+</ol>
 
     </div>
 </article>
