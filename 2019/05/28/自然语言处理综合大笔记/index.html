@@ -72,81 +72,102 @@
     </nav>
 </header>
                 <main class="main">
-                    
-<section class="posts">
+                    <article class="post">
     
-        <article class="post">
-            
-                <h4 class="post-cat">
-                    <a href="/categories/计算机/">
-                        计算机
-                    </a>
-                </h4>
-                
-                <h4 class="post-cat">
-                    <a href="/categories/计算机/机器学习/">
-                        机器学习
-                    </a>
-                </h4>
-                
-                    <h1 class="post-title">
-                        <a href="/2019/05/28/自然语言处理综合大笔记/">
-                            自然语言处理综合大笔记
-                        </a>
-                    </h1>
+    
+    <h4 class="post-cat">
+        <a href="/categories/计算机/">
+            计算机
+        </a>
+    </h4>
+    
+    <h4 class="post-cat">
+        <a href="/categories/计算机/机器学习/">
+            机器学习
+        </a>
+    </h4>
+    
+    
+    <h2 class="post-title">
+        自然语言处理综合大笔记
+    </h2>
+    <ul class="post-date">
+        <li>
+            2019-05-28
+        </li>
+        <li>
+            ZGJ
+        </li>
+    </ul>
+    <div class="post-content">
+        <!-- toc -->
+<ul>
+<li><a href="#关键词">关键词</a></li>
+<li><a href="#语法理论">语法理论</a><ul>
+<li><a href="#语法分析">语法分析</a></li>
+</ul>
+</li>
+<li><a href="#文本生成">文本生成</a><ul>
+<li><a href="#文本摘要">文本摘要</a><ul>
+<li><a href="#分类">分类</a></li>
+<li><a href="#算法">算法</a></li>
+<li><a href="#抽取式-生成式">抽取式、生成式</a></li>
+</ul>
+</li>
+<li><a href="#评价方法">评价方法</a><ul>
+<li><a href="#rouge">ROUGE</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#参考资料">参考资料</a></li>
+</ul>
+<!-- tocstop -->
+<h1><span id="关键词">关键词</span></h1><ol>
+<li>领域：文本生成，文本摘要，句子压缩与融合，文本复述。</li>
+<li>方法：基于深层语法的文本生成，线图分析法（Chart Parsing）技术，基于同步文法的文本生成</li>
+</ol>
+<h1><span id="语法理论">语法理论</span></h1><h2><span id="语法分析">语法分析</span></h2><p>组合范畴语法（Combinatory Categorial Grammar；简称 CCG）</p>
+<p>中心语驱动的短语结构语法（Head-driven Phrase-Structure Grammar；简称 HPSG）。</p>
+<p>上下文无关文法（Context-Free Grammar；简称 CFG）</p>
+<h1><span id="文本生成">文本生成</span></h1><h2><span id="文本摘要">文本摘要</span></h2><h3><span id="分类">分类</span></h3><ol>
+<li>单文档摘要 &amp; 多文档摘要</li>
+<li>抽取式 &amp; 生成式</li>
+<li>有监督 &amp; 无监督</li>
+</ol>
+<h3><span id="算法">算法</span></h3><ol>
+<li>基于统计学</li>
+<li>基于外部语义资源<br>词汇链。<br>wordnet（面向语义的英文词典）、词性标注工具等。</li>
+<li>图排序<br>Text rank排序算法。<br>LexRank：无监督图形方法。<br>PageRank、HITS。</li>
+<li>统计机器学习<br>朴素贝叶斯算法、隐马尔可夫算法、决策树算法等。<br>特征：主题词特征、大写词特征、线索短语特征、句子长度特征、段落特征，词频、线索词、句子位置、TF-IDF 值、标题词长，平均句子长度，平均词汇连接度，是否包含数词、时间等信息，是否包含代词、形词等词汇，是否包含命名实体。</li>
+<li>深度学习<br>Seq2Seq模型。<br>TensorFlow的一个自动摘要模块 Textsum。</li>
+</ol>
+<h3><span id="抽取式-生成式">抽取式、生成式</span></h3><p>抽取式：</p>
+<ol>
+<li>Lead-3</li>
+<li>TextRank</li>
+<li>聚类</li>
+<li>序列标注方式<br>序列标注结合Seq2Seq</li>
+<li>Seq2Seq方式</li>
+<li>句子排序方式<br>结合打分</li>
+</ol>
+<p>生成式</p>
+<ol>
+<li>Seq2Seq<br>增加了 Copy 和 Coverage 机制。</li>
+<li>利用外部信息</li>
+<li>多任务学习</li>
+<li>生成对抗方式</li>
+</ol>
+<p>生成抽取式</p>
+<ol>
+<li>pointer-generator 网络。</li>
+</ol>
+<h2><span id="评价方法">评价方法</span></h2><h3><span id="rouge">ROUGE</span></h3><h1><span id="参考资料">参考资料</span></h1><ol>
+<li>文本摘要的系统性学习（1）<a href="https://zhuanlan.zhihu.com/p/67078700" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/67078700</a>（对文本摘要的概括性介绍，内容比较全）</li>
+</ol>
 
-                    <ul class="post-date">
-                        <li>
-                            May 28, 2019
-                        </li>
-                        <li>
-                            ZGJ
-                        </li>
-                    </ul>
-                    
-                    <div class="post-content ">
-                        
-                            <a href="/2019/05/28/自然语言处理综合大笔记/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
-        <article class="post">
-            
-                <h4 class="post-cat">
-                    <a href="/categories/计算机/">
-                        计算机
-                    </a>
-                </h4>
-                
-                <h4 class="post-cat">
-                    <a href="/categories/计算机/机器学习/">
-                        机器学习
-                    </a>
-                </h4>
-                
-                    <h1 class="post-title">
-                        <a href="/2019/05/24/非监督文本摘要/">
-                            非监督文本摘要
-                        </a>
-                    </h1>
-
-                    <ul class="post-date">
-                        <li>
-                            May 24, 2019
-                        </li>
-                        <li>
-                            ZGJ
-                        </li>
-                    </ul>
-                    
-                    <div class="post-content ">
-                        
-                            <a href="/2019/05/24/非监督文本摘要/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
-</section>
-
+    </div>
+</article>
                 </main>
                 <aside class="aside">
                     <section class="aside-section">
