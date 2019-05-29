@@ -114,9 +114,9 @@
 <li><a href="#基于统计学">基于统计学</a></li>
 <li><a href="#基于词图模型">基于词图模型</a></li>
 <li><a href="#基于主题模型">基于主题模型</a></li>
+<li><a href="#聚类">聚类</a></li>
 </ul>
 </li>
-<li><a href="#聚类">聚类</a></li>
 <li><a href="#模型">模型</a></li>
 <li><a href="#参考文献">参考文献</a></li>
 </ul>
@@ -133,6 +133,10 @@
 <li><a href="#rouge">ROUGE</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li><a href="#文本分类">文本分类</a><ul>
+<li><a href="#模型-1">模型</a></li>
 </ul>
 </li>
 </ul>
@@ -179,7 +183,10 @@
 <li>计算文章主题分部<br>根据得到的隐含主题模型，计算文章的主题分布和候选关键词分布。</li>
 <li>排序<br>计算文档和候选关键词的主题相似度并排序，选取前n个词作为关键词。</li>
 </ol>
-<h2><span id="聚类">聚类</span></h2><p>基于高维聚 类技术的中文关键词提取算法。算法通过依据小词典的快速分词、二次分词、高维聚类及关键词甄选四个步骤实现关键词的提取。理论分析和实验显示，基于高维聚 类技术的中文关键词提取方法具备更好的稳定性、更高的效率及更准确的结果。 </p>
+<h3><span id="聚类">聚类</span></h3><p>基于高维聚 类技术的中文关键词提取算法。算法通过依据小词典的快速分词、二次分词、高维聚类及关键词甄选四个步骤实现关键词的提取。理论分析和实验显示，基于高维聚 类技术的中文关键词提取方法具备更好的稳定性、更高的效率及更准确的结果。 </p>
+<ol>
+<li>k-means</li>
+</ol>
 <h2><span id="模型">模型</span></h2><ol>
 <li>TextRank</li>
 <li>PageRank</li>
@@ -211,7 +218,7 @@
 <h3><span id="算法">算法</span></h3><ol>
 <li>基于统计学</li>
 <li>基于外部语义资源<br>词汇链。<br>wordnet（面向语义的英文词典）、词性标注工具等。</li>
-<li>图排序<br>Text rank排序算法。<br>LexRank：无监督图形方法。<br>PageRank、HITS。</li>
+<li>图排序<br>Text rank排序算法。<br>LexRank：无监督图形方法。<br>PageRank。<br>HITS。</li>
 <li>统计机器学习<br>朴素贝叶斯算法、隐马尔可夫算法、决策树算法等。<br>特征：主题词特征、大写词特征、线索短语特征、句子长度特征、段落特征，词频、线索词、句子位置、TF-IDF 值、标题词长，平均句子长度，平均词汇连接度，是否包含数词、时间等信息，是否包含代词、形词等词汇，是否包含命名实体。</li>
 <li>深度学习<br>Seq2Seq模型。<br>TensorFlow的一个自动摘要模块 Textsum。</li>
 </ol>
@@ -249,7 +256,10 @@
 <li><a href="https://blog.csdn.net/u014435314/article/details/81223340" target="_blank" rel="noopener">论文阅读：EmbedRank: Unsupervised Keyphrase Extraction using Sentence Embeddings</a>（介绍得太简略，另外这个论文有<a href="https://github.com/swisscom/ai-research-keyphrase-extraction" target="_blank" rel="noopener">相应代码</a>）</li>
 <li><a href="https://zhuanlan.zhihu.com/p/67078700" target="_blank" rel="noopener">文本摘要的系统性学习（1）</a>（对文本摘要的概括性介绍，内容比较全）</li>
 </ol>
-<h2><span id="评价方法">评价方法</span></h2><h3><span id="rouge">ROUGE</span></h3>
+<h2><span id="评价方法">评价方法</span></h2><h3><span id="rouge">ROUGE</span></h3><h1><span id="文本分类">文本分类</span></h1><h2><span id="模型">模型</span></h2><ol>
+<li>fasttext</li>
+</ol>
+
     </div>
 </article>
                 </main>
