@@ -72,46 +72,49 @@
     </nav>
 </header>
                 <main class="main">
-                    
-<section class="posts">
+                    <article class="post">
     
-        <article class="post">
-            
-                <h4 class="post-cat">
-                    <a href="/categories/计算机/">
-                        计算机
-                    </a>
-                </h4>
-                
-                <h4 class="post-cat">
-                    <a href="/categories/计算机/机器学习/">
-                        机器学习
-                    </a>
-                </h4>
-                
-                    <h1 class="post-title">
-                        <a href="/2019/05/28/机器学习数据集/">
-                            机器学习数据及工具汇总
-                        </a>
-                    </h1>
+    
+    <h4 class="post-cat">
+        <a href="/categories/计算机/">
+            计算机
+        </a>
+    </h4>
+    
+    <h4 class="post-cat">
+        <a href="/categories/计算机/数学/">
+            数学
+        </a>
+    </h4>
+    
+    
+    <h2 class="post-title">
+        复杂度分析大笔记
+    </h2>
+    <ul class="post-date">
+        <li>
+            2019-06-24
+        </li>
+        <li>
+            ZGJ
+        </li>
+    </ul>
+    <div class="post-content">
+        <!-- toc -->
+<ul>
+<li><a href="#机器学习">机器学习</a><ul>
+<li><a href="#卷积神经网络">卷积神经网络</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<h1><span id="机器学习">机器学习</span></h1><h2><span id="卷积神经网络">卷积神经网络</span></h2><p>参考：<a href="http://www.dataguru.cn/article-12668-1.html" target="_blank" rel="noopener">卷积神经网络的复杂度分析</a></p>
+<p><strong>时间复杂度</strong>：</p>
+<p>单层：<br>$$<br>Time \sim M^2\cdot K^2\cdot C_{in}\cdot C_{out}​<br>$$<br>M：特征图边长（$M=(X-K+2*Padding)/Stride+1$）；K：卷积核边长；Cin：卷积核通道数；Cout：卷积核个数，即输出通道数。</p>
+<p>所有层：<br>$$<br>Time \sim O(\sum_{l=1}^D M^2_l\cdot K^2_l\cdot C_{l-1}\cdot C_l)<br>$$<br><strong>空间复杂度</strong>：<br>$$<br>Space \sim O(\sum_{l=1}^D K^2_l\cdot C_{l-1}\cdot C_l)<br>$$<br>空间复杂度只与卷积核的尺寸 K 、通道数 C 、网络的深度 D 相关。而与输入数据的大小无关。</p>
 
-                    <ul class="post-date">
-                        <li>
-                            May 28, 2019
-                        </li>
-                        <li>
-                            ZGJ
-                        </li>
-                    </ul>
-                    
-                    <div class="post-content ">
-                        
-                            <a href="/2019/05/28/机器学习数据集/" class="more-link">Continue reading</a>
-                    </div>
-        </article>
-        
-</section>
-
+    </div>
+</article>
                 </main>
                 <aside class="aside">
                     <section class="aside-section">
