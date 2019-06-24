@@ -108,7 +108,7 @@
 </li>
 </ul>
 <!-- tocstop -->
-<h1><span id="机器学习">机器学习</span></h1><h2><span id="卷积神经网络">卷积神经网络</span></h2><p>参考：<a href="http://www.dataguru.cn/article-12668-1.html" target="_blank" rel="noopener">卷积神经网络的复杂度分析</a></p>
+<h1><span id="机器学习">机器学习</span></h1><h2><span id="卷积神经网络">卷积神经网络</span></h2><p>参考：<a href="https://blog.csdn.net/gubenpeiyuan/article/details/81561262" target="_blank" rel="noopener">神经网络时间复杂度和空间复杂度（参数量计算和计算量计算）</a></p>
 <p><strong>时间复杂度</strong>：</p>
 <p>单层：</p>
 <script type="math/tex; mode=display">
@@ -117,7 +117,7 @@ Time \sim M^2\cdot K^2\cdot C_{in}\cdot C_{out}​</script><p>M：特征图边�
 <script type="math/tex; mode=display">
 Time \sim O(\sum_{l=1}^D M^2_l\cdot K^2_l\cdot C_{l-1}\cdot C_l)</script><p><strong>空间复杂度</strong>：</p>
 <script type="math/tex; mode=display">
-Space \sim O(\sum_{l=1}^D K^2_l\cdot C_{l-1}\cdot C_l)</script><p>空间复杂度只与卷积核的尺寸 K 、通道数 C 、网络的深度 D 相关。而与输入数据的大小无关。</p>
+Space \sim O(\sum_{l=1}^D K^2_l\cdot C_{l-1}\cdot C_l+\sum_{l=1}^DM^2\cdot C_l)</script><p>空间复杂度只与卷积核的尺寸 K 、通道数 C 、网络的深度 D 相关。而与输入数据的大小无关。</p>
 
     </div>
 </article>
