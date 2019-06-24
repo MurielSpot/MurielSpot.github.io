@@ -112,7 +112,8 @@
 <li><a href="#计算机视觉">计算机视觉</a></li>
 </ul>
 <!-- tocstop -->
-<h1><span id="自然语言处理">自然语言处理</span></h1><h2><span id="顶刊顶会">顶刊/顶会</span></h2><table>
+<h1><span id="自然语言处理">自然语言处理</span></h1><h2><span id="顶刊顶会">顶刊/顶会</span></h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>序号</th>
@@ -153,6 +154,8 @@
 </tr>
 </tbody>
 </table>
+</div>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -215,6 +218,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h2><span id="数据集">数据集</span></h2><ol>
 <li><a href="http://tcci.ccf.org.cn/conference/2017/taskdata.php" target="_blank" rel="noopener">NLPCC 2017</a></li>
 <li><a href="https://www.kaggle.com/benhamner/nips-papers/home" target="_blank" rel="noopener">1987-2017NIPS论文的数据集</a></li>
@@ -285,6 +289,22 @@
                     </section>
                 </aside>
         </div>
-    </body>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
 
 </html>
