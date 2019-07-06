@@ -105,6 +105,7 @@
 <li><a href="#机器学习">机器学习</a><ul>
 <li><a href="#卷积神经网络">卷积神经网络</a></li>
 <li><a href="#lstm">LSTM</a></li>
+<li><a href="#其他参考资料">其他参考资料</a></li>
 </ul>
 </li>
 </ul>
@@ -120,19 +121,28 @@ Time \sim M^2\cdot K^2\cdot C_{in}\cdot C_{out}​</script><p>M：特征图边�
 <p>所有层：</p>
 <script type="math/tex; mode=display">
 Time \sim O(\sum_{l=1}^D M^2_l\cdot K^2_l\cdot C_{l-1}\cdot C_l)</script><p><strong>空间复杂度</strong>：</p>
+<p>参数量：</p>
 <script type="math/tex; mode=display">
-Space \sim O(\sum_{l=1}^D K^2_l\cdot C_{l-1}\cdot C_l+\sum_{l=1}^DM^2\cdot C_l)</script><p>空间复杂度只与卷积核的尺寸 K 、通道数 C 、网络的深度 D 相关。而与输入数据的大小无关。</p>
+Space \sim O(\sum_{l=1}^D K^2_l\cdot C_{l-1}\cdot C_l)</script><p>各层输出特征图量：</p>
+<script type="math/tex; mode=display">
+Space \sim O(\sum_{l=1}^DM^2\cdot C_l)</script><p>总复杂度：参数量+各层输出特征图量</p>
+<script type="math/tex; mode=display">
+Space \sim O(\sum_{l=1}^D K^2_l\cdot C_{l-1}\cdot C_l+\sum_{l=1}^DM^2\cdot C_l)</script><p>总参数量量只与卷积核的尺寸 K 、通道数 C 、网络的深度 D 相关。而与输入数据的大小无关。</p>
+<p>有些层（例如 ReLU）其实是可以通过原位运算完成的，此时就不用统计输出特征图这一项了。</p>
 <h2><span id="lstm">LSTM</span></h2><p><strong>时间复杂度</strong>：</p>
 <p><strong>空间复杂度</strong>：</p>
 <p>参考：<a href="https://blog.csdn.net/yuanmengxinglong/article/details/83591307" target="_blank" rel="noopener">CNN 与 LSTM 模型复杂度分析</a></p>
 <p>lstm一共维护四套参数，分别对应输入门、输出门、遗忘门和候选态。另外，令输入大小为I，输出为O，隐含层大小为H，偏移为Bias：</p>
-<p>参数总数为：parameters=4 <em> ( H </em> I + H <em> Bias + O </em> H)</p>
+<p>参数总数为：parameters=4 <em> ( H \</em> I + H * Bias + O * H)</p>
 <script type="math/tex; mode=display">
 Space \sim O(\sum_{l=1}^D 4\cdot H_l\cdot (I_l+Bias_l+O_l))</script><p>通常隐含层大小和输出层是一样的。</p>
-<p>LSTM 中的参数我们可以简化为 U ,V 两个矩阵，其分别对输入和输出做映射，U 的维度为 hidden <em> Input，V 的维度是 hidden </em> hidden。所以这样分开理解也可以，网络在学习的就是这两个矩阵，所以总的数量为 4(hidden <em> Input + hidden </em> hidden + hidden) 这也就是我们常看到的 4(nm+ n^2+n），其中n为 hidden_size，m为 input_size。</p>
+<p>LSTM 中的参数我们可以简化为 U ,V 两个矩阵，其分别对输入和输出做映射，U 的维度为 hidden * Input，V 的维度是 hidden * hidden。所以这样分开理解也可以，网络在学习的就是这两个矩阵，所以总的数量为 4(hidden * Input + hidden * hidden + hidden) 这也就是我们常看到的 4(nm+ n^2+n），其中n为 hidden_size，m为 input_size。</p>
 <p>计算的例子 <a href="https://stackoverflow.com/questions/38080035/how-to-calculate-the-number-of-parameters-of-an-lstm-network" target="_blank" rel="noopener">例子1</a> <a href="https://datascience.stackexchange.com/questions/10615/number-of-parameters-in-an-lstm-model" target="_blank" rel="noopener">例子2</a></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> keras.models <span class="keyword">import</span> Sequential</span><br><span class="line"><span class="keyword">from</span> keras.layers <span class="keyword">import</span> Dense, Dropout, Activation</span><br><span class="line"><span class="keyword">from</span> keras.layers <span class="keyword">import</span> Embedding</span><br><span class="line"><span class="keyword">from</span> keras.layers <span class="keyword">import</span> LSTM</span><br><span class="line">model = Sequential()</span><br><span class="line">model.add(LSTM(<span class="number">256</span>, input_dim=<span class="number">4096</span>, input_length=<span class="number">16</span>))</span><br><span class="line">model.summary()</span><br></pre></td></tr></table></figure>
-<p>总参数量为：4457472=4 <em> (4097 </em> 256 + 256^2)</p>
+<p>总参数量为：4457472=4 * (4097 * 256 + 256^2)，因为每次输入使用的都是同样的RNN网络，所以参数量不用乘以输入长度。</p>
+<h2><span id="其他参考资料">其他参考资料</span></h2><ol>
+<li><a href="https://blog.csdn.net/leayc/article/details/81001801" target="_blank" rel="noopener">我的模型有多快？——深度学习网络模型的运算复杂度、空间占用和内存访问情况计算</a></li>
+</ol>
 
     </div>
 </article>
