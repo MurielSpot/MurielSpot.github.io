@@ -102,7 +102,7 @@
     <div class="post-content">
         <!-- toc -->
 <ul>
-<li><a href="#关键词">关键词</a></li>
+<li><a href="#还需要查的关键词">还需要查的关键词</a></li>
 <li><a href="#语法理论">语法理论</a><ul>
 <li><a href="#语法分析">语法分析</a></li>
 </ul>
@@ -121,18 +121,11 @@
 <li><a href="#参考文献">参考文献</a></li>
 </ul>
 </li>
-<li><a href="#文本生成">文本生成</a><ul>
-<li><a href="#文本摘要">文本摘要</a><ul>
+<li><a href="#文本生成-文本摘要">文本生成-文本摘要</a><ul>
 <li><a href="#分类-1">分类</a></li>
 <li><a href="#算法-1">算法</a></li>
-<li><a href="#抽取式-生成式">抽取式、生成式</a></li>
+<li><a href="#评价方法">评价方法</a></li>
 <li><a href="#文本摘要参考文献">文本摘要参考文献</a></li>
-</ul>
-</li>
-<li><a href="#评价方法">评价方法</a><ul>
-<li><a href="#rouge">ROUGE</a></li>
-</ul>
-</li>
 </ul>
 </li>
 <li><a href="#阅读理解">阅读理解</a></li>
@@ -142,15 +135,20 @@
 </ul>
 </li>
 <li><a href="#问答系统">问答系统</a><ul>
+<li><a href="#方法">方法</a><ul>
+<li><a href="#语义解析semantic-parsing">语义解析（Semantic Parsing）</a></li>
+<li><a href="#信息抽取information-extraction">信息抽取（Information Extraction）</a></li>
+<li><a href="#向量建模vector-modeling">向量建模（Vector Modeling）</a></li>
+<li><a href="#基于深度学习的方法-通过深度学习对传统的方法进行提升">基于深度学习的方法。通过深度学习对传统的方法进行提升。</a></li>
+</ul>
+</li>
 <li><a href="#参考">参考</a></li>
+<li><a href="#论文参考">论文参考</a></li>
 </ul>
 </li>
 </ul>
 <!-- tocstop -->
-<h1><span id="关键词">关键词</span></h1><ol>
-<li>领域：文本生成，文本摘要，句子压缩与融合，文本复述，关键词提取。</li>
-<li>方法：基于深层语法的文本生成，线图分析法（Chart Parsing）技术，基于同步文法的文本生成</li>
-</ol>
+<h1><span id="还需要查的关键词">还需要查的关键词</span></h1><p>文本生成，文本摘要，句子压缩与融合，文本复述，远程监督Distant Supervison，随机游走Random walk，马尔科夫逻辑Markov logic，Beam search，基于深层语法的文本生成，线图分析法（Chart Parsing）技术，基于同步文法的文本生成。</p>
 <h1><span id="语法理论">语法理论</span></h1><h2><span id="语法分析">语法分析</span></h2><p>组合范畴语法（Combinatory Categorial Grammar；简称 CCG）</p>
 <p>中心语驱动的短语结构语法（Head-driven Phrase-Structure Grammar；简称 HPSG）。</p>
 <p>上下文无关文法（Context-Free Grammar；简称 CFG）</p>
@@ -218,39 +216,43 @@
 <li><a href="http://www.cortical.io/extract-keywords.html" target="_blank" rel="noopener">提取关键词的实用工具</a>（效果不好）</li>
 <li><a href="https://pypi.org/project/rake-nltk/" target="_blank" rel="noopener">实用工具 rake-nltk 1.0.4接口</a></li>
 </ol>
-<h1><span id="文本生成">文本生成</span></h1><h2><span id="文本摘要">文本摘要</span></h2><h3><span id="分类">分类</span></h3><ol>
-<li>单文档摘要 &amp; 多文档摘要</li>
-<li>抽取式 &amp; 生成式</li>
-<li>有监督 &amp; 无监督</li>
-</ol>
-<h3><span id="算法">算法</span></h3><ol>
-<li>基于统计学</li>
-<li>基于外部语义资源<br>词汇链。<br>wordnet（面向语义的英文词典）、词性标注工具等。</li>
-<li>图排序<br>Text rank排序算法。<br>LexRank：无监督图形方法。<br>PageRank。<br>HITS。</li>
-<li>统计机器学习<br>朴素贝叶斯算法、隐马尔可夫算法、决策树算法等。<br>特征：主题词特征、大写词特征、线索短语特征、句子长度特征、段落特征，词频、线索词、句子位置、TF-IDF 值、标题词长，平均句子长度，平均词汇连接度，是否包含数词、时间等信息，是否包含代词、形词等词汇，是否包含命名实体。</li>
-<li>深度学习<br>Seq2Seq模型。<br>TensorFlow的一个自动摘要模块 Textsum。</li>
-</ol>
-<h3><span id="抽取式-生成式">抽取式、生成式</span></h3><p>抽取式：</p>
-<ol>
+<h1><span id="文本生成-文本摘要">文本生成-文本摘要</span></h1><h2><span id="分类">分类</span></h2><ol>
+<li><p>单文档摘要 &amp; 多文档摘要</p>
+</li>
+<li><p>抽取式 &amp; 生成式</p>
+<p>抽取式：</p>
+<ul>
 <li>Lead-3</li>
 <li>TextRank</li>
 <li>聚类</li>
 <li>序列标注方式<br>序列标注结合Seq2Seq</li>
 <li>Seq2Seq方式</li>
 <li>句子排序方式<br>结合打分</li>
-</ol>
+</ul>
 <p>生成式</p>
-<ol>
+<ul>
 <li>Seq2Seq<br>增加了 Copy 和 Coverage 机制。</li>
 <li>利用外部信息</li>
 <li>多任务学习</li>
 <li>生成对抗方式</li>
-</ol>
+</ul>
 <p>生成抽取式</p>
-<ol>
+<ul>
 <li>pointer-generator 网络。</li>
+</ul>
+</li>
+<li><p>有监督 &amp; 无监督</p>
+</li>
 </ol>
-<h3><span id="文本摘要参考文献">文本摘要参考文献</span></h3><ol>
+<h2><span id="算法">算法</span></h2><ol>
+<li>基于统计学</li>
+<li>基于外部语义资源<br>词汇链。<br>wordnet（面向语义的英文词典）、词性标注工具等。</li>
+<li>图排序<br>Text rank排序算法。<br>LexRank：无监督图形方法。<br>PageRank。<br>HITS。</li>
+<li>统计机器学习<br>朴素贝叶斯算法、隐马尔可夫算法、决策树算法等。<br>特征：主题词特征、大写词特征、线索短语特征、句子长度特征、段落特征，词频、线索词、句子位置、TF-IDF 值、标题词长，平均句子长度，平均词汇连接度，是否包含数词、时间等信息，是否包含代词、形词等词汇，是否包含命名实体。</li>
+<li>深度学习<br>Seq2Seq模型。<br>TensorFlow的一个自动摘要模块 Textsum。</li>
+</ol>
+<h2><span id="评价方法">评价方法</span></h2><p>ROUGE</p>
+<h2><span id="文本摘要参考文献">文本摘要参考文献</span></h2><ol>
 <li><a href="https://blog.csdn.net/weixin_34290631/article/details/86002997" target="_blank" rel="noopener">awesome-text-summarization</a>（文本摘要相关的数据集、软件、论文的汇总）</li>
 <li><a href="https://www.jianshu.com/p/b561cfd9ebd6" target="_blank" rel="noopener">非监督文本摘要</a>（简介文本摘要，并介绍了一个非监督文本摘要模型）</li>
 <li><a href="http://m.elecfans.com/article/825864.html" target="_blank" rel="noopener">基于句嵌入进行无监督文本总结的经验</a>（和上一个参考资料介绍了相同的论文）</li>
@@ -265,10 +267,9 @@
 <li><a href="https://zhuanlan.zhihu.com/p/67078700" target="_blank" rel="noopener">文本摘要的系统性学习（1）</a>（对文本摘要的概括性介绍，内容比较全）</li>
 <li><a href="http://www.geekpark.net/news/215983" target="_blank" rel="noopener">人去做文本摘要都挺困难了，机器要怎么做？</a>(seq2seq+注意力，介绍了文本摘要的一些模型)</li>
 </ol>
-<h2><span id="评价方法">评价方法</span></h2><h3><span id="rouge">ROUGE</span></h3><h1><span id="阅读理解">阅读理解</span></h1><p>参考资料：</p>
+<h1><span id="阅读理解">阅读理解</span></h1><p>参考资料：</p>
 <ol>
 <li><a href="https://blog.csdn.net/yH0VLDe8VG8ep9VGe/article/details/80013584" target="_blank" rel="noopener">猿辅导MSMARCO冠军团队：用MARS模型解决机器阅读任务 | 吃瓜笔记</a></li>
-<li></li>
 </ol>
 <h1><span id="文本分类">文本分类</span></h1><h2><span id="模型">模型</span></h2><ol>
 <li>fasttext</li>
@@ -277,8 +278,48 @@
 <h2><span id="工具">工具</span></h2><ol>
 <li><a href="https://radimrehurek.com/gensim/tutorial.html" target="_blank" rel="noopener">gensim</a></li>
 </ol>
-<h1><span id="问答系统">问答系统</span></h1><h3><span id="参考">参考</span></h3><ol>
+<h1><span id="问答系统">问答系统</span></h1><h2><span id="方法">方法</span></h2><h3><span id="语义解析semantic-parsing">语义解析（Semantic Parsing）</span></h3><p>语义表示（表示成逻辑形式） + 推理查询（需要用到查询知识库的逻辑语言）。</p>
+<p>语法解析的过程可以看作是自底向上构造语法树的过程，树的根节点，就是该自然语言问题最终的逻辑形式表达。整个流程可以分为两个步骤：</p>
+<ol>
+<li>词汇映射：即构造底层的语法树节点。将单个自然语言短语或单词映射到知识库实体或知识库实体关系所对应的逻辑形式。我们可以通过构造一个词汇表（Lexicon）来完成这样的映射。</li>
+<li>构建（Composition）：即自底向上对树的节点进行两两合并，最后生成根节点，完成语法树的构建。<br>具体方法：组合范畴语法（Combinatory Categorical Grammars，CCG），暴力方法（对两个节点都可以执行Join、Intersection、Aggregate等操作。</li>
+</ol>
+<h3><span id="信息抽取information-extraction">信息抽取（Information Extraction）</span></h3><p>从句子得到实体（NER，依存树，词性标注）（问题词，问题焦点，主题词，中心动词） =》知识库子图 =》节点或边作为候选答案 =》按规则或模板进行匹配（信息抽取）=》得到表征问题或答案的特征向量=》分类器（SVM，感知机，逻辑回归……）得到答案。</p>
+<h3><span id="向量建模vector-modeling">向量建模（Vector Modeling）</span></h3><h3><span id="基于深度学习的方法-通过深度学习对传统的方法进行提升">基于深度学习的方法。通过深度学习对传统的方法进行提升。</span></h3><h2><span id="参考">参考</span></h2><ol>
 <li><a href="https://zhuanlan.zhihu.com/p/25735572" target="_blank" rel="noopener">揭开知识库问答KB-QA的面纱1·简介篇</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/25759682" target="_blank" rel="noopener">揭开知识库问答KB-QA的面纱2·语义解析篇</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/25782244" target="_blank" rel="noopener">揭开知识库问答KB-QA的面纱3·信息抽取篇</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/25824501" target="_blank" rel="noopener">揭开知识库问答KB-QA的面纱4·向量建模篇</a></li>
+</ol>
+<h2><span id="论文参考">论文参考</span></h2><p>语义解析：</p>
+<ol>
+<li>Berant J, Chou A, Frostig R, et al. <em>Semantic Parsing on Freebase from Question-Answer Pairs</em>[C]//EMNLP. 2013, 2(5): 6.</li>
+<li>Cai Q, Yates A. <em>Large-scale Semantic Parsing via Schema Matching and Lexicon Extension</em>[C]//ACL (1). 2013: 423-433.</li>
+<li>Kwiatkowski T, Choi E, Artzi Y, et al. <em>Scaling semantic parsers with on-the-fly ontology matching</em>[C]//In Proceedings of EMNLP. Percy. 2013.</li>
+<li>Fader A, Zettlemoyer L, Etzioni O. <em>Open question answering over curated and extracted knowledge bases</em>[C]//Proceedings of the 20th ACM SIGKDD international conference on Knowledge discovery and data mining. ACM, 2014: 1156-1165.</li>
+<li>Yih S W, Chang M W, He X, et al. <em>Semantic parsing via staged query graph generation: Question answering with knowledge base</em>[J]. 2015. （注 该paper来自微软，是ACL 2015年的Outstanding paper，也是目前KB-QA效果最好的paper之一）</li>
+</ol>
+<p>信息抽取：</p>
+<ol>
+<li>Yao X, Van Durme B. <em>Information Extraction over Structured Data: Question Answering with Freebase</em>[C]//ACL (1). 2014: 956-966.</li>
+</ol>
+<p>向量建模方法：</p>
+<ol>
+<li>Bordes A, Chopra S, Weston J. <em>Question answering with subgraph embeddings</em>[J]. arXiv preprint arXiv:1406.3676, 2014.</li>
+<li>Yang M C, Duan N, Zhou M, et al. <em>Joint Relational Embeddings for Knowledge-based Question Answering[</em>C]//EMNLP. 2014, 14: 645-650.</li>
+<li>Bordes A, Weston J, Usunier N. <em>Open question answering with weakly supervised embedding models</em>[C]//Joint European Conference on Machine Learning and Knowledge Discovery in Databases. Springer Berlin Heidelberg, 2014: 165-180.</li>
+<li>Dong L, Wei F, Zhou M, et al. <em>Question Answering over Freebase with Multi-Column Convolutional Neural Networks</em>[C]//ACL (1). 2015: 260-269.</li>
+</ol>
+<p>使用LSTM、CNNs进行实体关系分类：</p>
+<ol>
+<li>Xu Y, Mou L, Li G, et al. <em>Classifying Relations via Long Short Term Memory Networks along Shortest Dependency Paths</em>[C]//EMNLP. 2015: 1785-1794.</li>
+<li>Zeng D, Liu K, Lai S, et al. <em>Relation Classification via Convolutional Deep Neural Network</em>[C]//COLING. 2014: 2335-2344.（Best paper）</li>
+<li>Zeng D, Liu K, Chen Y, et al. <em>Distant Supervision for Relation Extraction via Piecewise Convolutional Neural Networks</em>[C]//EMNLP. 2015: 1753-1762.</li>
+</ol>
+<p>使用记忆网络（Memory Networks），注意力机制（Attention Mechanism）进行KB-QA：</p>
+<ol>
+<li>Bordes A, Usunier N, Chopra S, et al. <em>Large-scale simple question answering with memory networks</em>[J]. arXiv preprint arXiv:1506.02075, 2015.</li>
+<li>Zhang Y, Liu K, He S, et al. <em>Question Answering over Knowledge Base with Neural Attention Combining Global Knowledge Information</em>[J]. arXiv preprint arXiv:1606.00979, 2016.</li>
 </ol>
 
     </div>
