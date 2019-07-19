@@ -106,6 +106,7 @@
 <li><a href="#顶刊顶会">顶刊/顶会</a></li>
 <li><a href="#数据集">数据集</a></li>
 <li><a href="#词表示">词表示</a></li>
+<li><a href="#知识图谱">知识图谱</a></li>
 <li><a href="#工具">工具</a></li>
 </ul>
 </li>
@@ -242,6 +243,9 @@
 <li><a href="https://www.ltp-cloud.com/download" target="_blank" rel="noopener">哈工大同义词词林</a></li>
 <li>WordNet</li>
 </ol>
+<h2><span id="知识图谱">知识图谱</span></h2><ol>
+<li>freebase</li>
+</ol>
 <h2><span id="工具">工具</span></h2><ol>
 <li><a href="https://github.com/huyingxi/Synonyms" target="_blank" rel="noopener">一个获取中文同义词的python库</a></li>
 <li><a href="https://github.com/HIT-SCIR/ltp4j" target="_blank" rel="noopener">哈工大ltp4j: Language Technology Platform For Java</a></li>
@@ -275,7 +279,7 @@
                         
     <h1>Categories</h1>
 
-    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/计算机/">计算机</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/计算机/数学/">数学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机/机器学习/">机器学习</a></li></ul></li></ul>
+    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/英语/">英语</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机/">计算机</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/计算机/数学/">数学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机/机器学习/">机器学习</a></li></ul></li></ul>
 
                     </section>
                     <section class="aside-section">
@@ -295,6 +299,22 @@
                     </section>
                 </aside>
         </div>
-    </body>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
 
 </html>
