@@ -123,6 +123,8 @@
 <h2><span id="网络结构">网络结构</span></h2><p>网络结构图：</p>
 <p><img src="//murielspot.github.io/2019/07/24/Signature-Verification-using-a-Siamese-Time-Delay-Neural-Network/tdnn.png" alt="tdnn"></p>
 <p>Siamese网络有两个子网络用来计算两个模式（pattern），每个子网络都基于Time Delay Neural Networks（<a href="https://blog.csdn.net/wxb1553725576/article/details/81588440" target="_blank" rel="noopener">参考</a>）。</p>
+<p>中间层共有12个单元，最低层的8x11个单元，经过8x11个参数的处理，结果传给12个单元，得到中间层的第一列的12个值。然后向右移动三个列，处理从第4列开始的8x11个单元，得到中间层的第二列。依此类推，最终处理到最底层的第190列开始的8x11个单元，得到中间层的最后一列，即第64列。前面TDNN的参考文献中，中间层处理过一列之后，最底层输入只处理向右移动一列所对应的输入，而这篇文章中，需要从向右移动三列的输入位置开始处理，只有这样中间层的列数才能正好时64列。</p>
+<p>TDNN的<a href="https://www.jianshu.com/p/0207536ebc6c" target="_blank" rel="noopener">tensorflow代码实现参考</a>。</p>
 
     </div>
 </article>
