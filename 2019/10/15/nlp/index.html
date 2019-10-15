@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta name="keywords" content="hexo, autumn">
+    <title>
+        Z&#39;s Blog
+    </title>
+    <!-- favicon -->
+    
+    <link rel="icon" href="https://murielspot.github.io/img/meow.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css">
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@1.0.0/dist/hexo-infinite-scroll.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@1.0.0/dist/hexo-infinite-scroll.min.js"></script>
+    <script>
+        infiniteScroll()
+
+        // for mobile menu
+        $(function () {
+            $('.social-button').click(function () {
+                if ($('.social-links').hasClass('hide-links')) {
+                    $('.social-links').removeClass('hide-links')
+                } else {
+                    $('.social-links').addClass('hide-links')
+                }
+            })
+        })
+    </script>
+</head>
+
+    <body style="background: url(https://murielspot.github.io/img/button-bg.png) #f3f3f3">
+        <div class="container">
+            <header class="header">
+    <h1 class="title">
+        <a href="/" class="logo">
+            Z&#39;s Blog
+        </a>
+    </h1>
+    <h2 class="desc">
+        
+    </h2>
+
+    <nav class="links">
+        <button class="social-button">
+            menu
+        </button>
+        <ul class="social-links hide-links">
+            
+                <li>
+                    <a href="https://github.com/MurielSpot">
+                        Github
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://blog.csdn.net/github_35736728">
+                        CSDN
+                    </a>
+                </li>
+                
+        </ul>
+    </nav>
+</header>
+                <main class="main">
+                    <article class="post">
+    
+    
+    <h4 class="post-cat">
+        <a href="/categories/计算机/">
+            计算机
+        </a>
+    </h4>
+    
+    <h4 class="post-cat">
+        <a href="/categories/计算机/机器学习/">
+            机器学习
+        </a>
+    </h4>
+    
+    
+    <h2 class="post-title">
+        nlp
+    </h2>
+    <ul class="post-date">
+        <li>
+            2019-10-15
+        </li>
+        <li>
+            ZGJ
+        </li>
+    </ul>
+    <div class="post-content">
+        <!-- toc -->
+<ul>
+<li><a href="#还需要查的关键词">还需要查的关键词</a></li>
+<li><a href="#语法理论">语法理论</a><ul>
+<li><a href="#语法分析">语法分析</a></li>
+</ul>
+</li>
+<li><a href="#分词方法">分词方法</a></li>
+<li><a href="#关键词提取">关键词提取</a><ul>
+<li><a href="#分类">分类</a></li>
+<li><a href="#算法">算法</a><ul>
+<li><a href="#基于统计学">基于统计学</a></li>
+<li><a href="#基于词图模型">基于词图模型</a></li>
+<li><a href="#基于主题模型">基于主题模型</a></li>
+<li><a href="#聚类">聚类</a></li>
+</ul>
+</li>
+<li><a href="#模型">模型</a></li>
+<li><a href="#参考文献">参考文献</a></li>
+</ul>
+</li>
+<li><a href="#文本生成-文本摘要">文本生成-文本摘要</a><ul>
+<li><a href="#分类-1">分类</a></li>
+<li><a href="#算法-1">算法</a></li>
+<li><a href="#评价方法">评价方法</a></li>
+<li><a href="#文本摘要参考文献">文本摘要参考文献</a></li>
+</ul>
+</li>
+<li><a href="#阅读理解">阅读理解</a></li>
+<li><a href="#文本分类">文本分类</a><ul>
+<li><a href="#模型-1">模型</a></li>
+<li><a href="#工具">工具</a></li>
+</ul>
+</li>
+<li><a href="#问答系统">问答系统</a><ul>
+<li><a href="#方法">方法</a><ul>
+<li><a href="#语义解析semantic-parsing">语义解析（Semantic Parsing）</a></li>
+<li><a href="#信息抽取information-extraction">信息抽取（Information Extraction）</a></li>
+<li><a href="#向量建模vector-modeling">向量建模（Vector Modeling）</a></li>
+<li><a href="#基于深度学习的方法-通过深度学习对传统的方法进行提升">基于深度学习的方法。通过深度学习对传统的方法进行提升。</a></li>
+</ul>
+</li>
+<li><a href="#模型或数据集">模型或数据集</a></li>
+<li><a href="#参考">参考</a></li>
+<li><a href="#论文参考">论文参考</a></li>
+</ul>
+</li>
+<li><a href="#命名实体识别ner">命名实体识别NER</a><ul>
+<li><a href="#方法-1">方法</a></li>
+<li><a href="#参考-1">参考</a></li>
+</ul>
+</li>
+<li><a href="#句向量">句向量</a><ul>
+<li><a href="#模型-2">模型</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<h1><span id="还需要查的关键词">还需要查的关键词</span></h1><p>文本生成，文本摘要，句子压缩与融合，文本复述，远程监督Distant  Supervison，随机游走Random walk，马尔科夫逻辑Markov logic，Beam  search，基于深层语法的文本生成，线图分析法（Chart Parsing）技术，基于同步文法的文本生成。</p>
+<h1><span id="语法理论">语法理论</span></h1><h2><span id="语法分析">语法分析</span></h2><p>组合范畴语法（Combinatory Categorial Grammar；简称 CCG）</p>
+<p>中心语驱动的短语结构语法（Head-driven Phrase-Structure Grammar；简称 HPSG）。</p>
+<p>上下文无关文法（Context-Free Grammar；简称 CFG）</p>
+<h1><span id="分词方法">分词方法</span></h1><ol>
+<li>jieba</li>
+<li>hanlp</li>
+<li>ansj</li>
+</ol>
+<h1><span id="关键词提取">关键词提取</span></h1><h2><span id="分类">分类</span></h2><ol>
+<li>有监督<br>关键词抽取算法看作是二分类问题。</li>
+<li>半监督<br>只需要少量的训练数据，利用这些训练数据构建关键词抽取模型，然后使用模型对新的文本进行关键词提取，对于这些关键词进行人工过滤，将过滤得到的关键词加入训练集，重新训练模型。</li>
+<li>无监督</li>
+</ol>
+<h2><span id="算法">算法</span></h2><h3><span id="基于统计学">基于统计学</span></h3><ol>
+<li>词权重<br>基于词权重的特征量化主要包括词性、词频、逆向文档频率、相对词频、词长等。</li>
+<li>词的文档位置<br>这种特征量化方式是根据文章不同位置的句子对文档的重要性不同的假设来进行的。通常，文章的前N个词、后N个词、段首、段尾、标题、引言等位置的词具有代表性，这些词作为关键词可以表达整个的主题。</li>
+<li>基于词的关联信息的特征量化<br>词的关联信息是指词与词、词与文档的关联程度信息，包括互信息、hits值、贡献度、依存度、TF-IDF值等。</li>
+</ol>
+<h3><span id="基于词图模型">基于词图模型</span></h3><p>语言网络类型</p>
+<ol>
+<li>共现网络图</li>
+<li>语法网络图</li>
+<li>语义网络图</li>
+<li>其他网络图</li>
+</ol>
+<p>节点的重要性计算方法</p>
+<ol>
+<li>综合特征法<br>度，接近性，特征向量，集聚系数，平均最短路径。</li>
+<li>系统科学法</li>
+<li>随机游走法<br>PageRank，TextRank。</li>
+</ol>
+<h3><span id="基于主题模型">基于主题模型</span></h3><p>步骤</p>
+<ol>
+<li>获取候选关键词<br>从文章中获取候选关键词。即将文本分词，也可以再根据词性选取候选关键词。</li>
+<li>语料学习<br>根据大规模预料学习得到主题模型。</li>
+<li>计算文章主题分部<br>根据得到的隐含主题模型，计算文章的主题分布和候选关键词分布。</li>
+<li>排序<br>计算文档和候选关键词的主题相似度并排序，选取前n个词作为关键词。</li>
+</ol>
+<h3><span id="聚类">聚类</span></h3><p>基于高维聚 类技术的中文关键词提取算法。算法通过依据小词典的快速分词、二次分词、高维聚类及关键词甄选四个步骤实现关键词的提取。理论分析和实验显示，基于高维聚 类技术的中文关键词提取方法具备更好的稳定性、更高的效率及更准确的结果。 </p>
+<ol>
+<li>k-means</li>
+</ol>
+<h2><span id="模型">模型</span></h2><ol>
+<li>TextRank</li>
+<li>PageRank</li>
+<li>主题模型：LSA，LSI，LDA</li>
+<li>TPR</li>
+<li>TF-IDF</li>
+<li>TF-IWF</li>
+<li>PCA</li>
+<li>卡方检验</li>
+<li>RAKE(Rapid Automatic Keyword Extraction)<br><a href="https://github.com/zelandiya/RAKE-tutorial" target="_blank" rel="noopener">代码</a> 论文 Automatic Keyword Extraction from Individual Documents 作者Alyona Medelyan </li>
+<li>Maui</li>
+<li>Topica</li>
+</ol>
+<h2><span id="参考文献">参考文献</span></h2><ol>
+<li><a href="https://www.zhihu.com/question/21104071?sort=created" target="_blank" rel="noopener">几种关键词提取算法对比</a></li>
+<li><a href="http://nlp.csai.tsinghua.edu.cn/~lzy/publications/phd_thesis.pdf" target="_blank" rel="noopener">关键字抽取博士论文（刘知远）</a></li>
+<li><a href="https://www.jiqizhixin.com/articles/2018-11-14-17" target="_blank" rel="noopener">专栏 | 如何做好文本关键词提取？从三种算法说起 机器之心</a></li>
+<li><a href="https://www.airpair.com/nlp/keyword-extraction-tutorial" target="_blank" rel="noopener">NLP keyword extraction tutorial with RAKE and Maui</a></li>
+<li><a href="https://www.knime.com/blog/keyword-extraction-for-understanding" target="_blank" rel="noopener">Keyword Extraction for Understanding</a>（介绍了Chi-Square、Keygraph、TF-IDF 三种方法）</li>
+<li><a href="https://graphaware.com/neo4j/2017/10/03/efficient-unsupervised-topic-extraction-nlp-neo4j.html" target="_blank" rel="noopener">Efficient unsupervised keywords extraction using graphs</a></li>
+<li><a href="https://github.com/topics/keyword-extraction" target="_blank" rel="noopener">GitHub上有关keyword-extraction的代码</a></li>
+<li><a href="https://medium.com/analytics-vidhya/automated-keyword-extraction-from-articles-using-nlp-bfd864f41b34" target="_blank" rel="noopener">代码 Automated Keyword Extraction from Articles using NLP</a></li>
+<li><a href="http://www.cortical.io/extract-keywords.html" target="_blank" rel="noopener">提取关键词的实用工具</a>（效果不好）</li>
+<li><a href="https://pypi.org/project/rake-nltk/" target="_blank" rel="noopener">实用工具 rake-nltk 1.0.4接口</a></li>
+</ol>
+<h1><span id="文本生成-文本摘要">文本生成-文本摘要</span></h1><h2><span id="分类">分类</span></h2><ol>
+<li><p>单文档摘要 &amp; 多文档摘要</p>
+</li>
+<li><p>抽取式 &amp; 生成式</p>
+<p>抽取式：</p>
+<ul>
+<li>Lead-3</li>
+<li>TextRank</li>
+<li>聚类</li>
+<li>序列标注方式<br>序列标注结合Seq2Seq</li>
+<li>Seq2Seq方式</li>
+<li>句子排序方式<br>结合打分</li>
+</ul>
+<p>生成式</p>
+<ul>
+<li>Seq2Seq<br>增加了 Copy 和 Coverage 机制。</li>
+<li>利用外部信息</li>
+<li>多任务学习</li>
+<li>生成对抗方式</li>
+</ul>
+<p>生成抽取式</p>
+<ul>
+<li>pointer-generator 网络。</li>
+</ul>
+</li>
+<li><p>有监督 &amp; 无监督</p>
+</li>
+</ol>
+<h2><span id="算法">算法</span></h2><ol>
+<li>基于统计学</li>
+<li>基于外部语义资源<br>词汇链。<br>wordnet（面向语义的英文词典）、词性标注工具等。</li>
+<li>图排序<br>Text rank排序算法。<br>LexRank：无监督图形方法。<br>PageRank。<br>HITS。</li>
+<li>统计机器学习<br>朴素贝叶斯算法、隐马尔可夫算法、决策树算法等。<br>特征：主题词特征、大写词特征、线索短语特征、句子长度特征、段落特征，词频、线索词、句子位置、TF-IDF 值、标题词长，平均句子长度，平均词汇连接度，是否包含数词、时间等信息，是否包含代词、形词等词汇，是否包含命名实体。</li>
+<li>深度学习<br>Seq2Seq模型。<br>TensorFlow的一个自动摘要模块 Textsum。</li>
+</ol>
+<h2><span id="评价方法">评价方法</span></h2><p>ROUGE</p>
+<h2><span id="文本摘要参考文献">文本摘要参考文献</span></h2><ol>
+<li><a href="https://blog.csdn.net/weixin_34290631/article/details/86002997" target="_blank" rel="noopener">awesome-text-summarization</a>（文本摘要相关的数据集、软件、论文的汇总）</li>
+<li><a href="https://www.jianshu.com/p/b561cfd9ebd6" target="_blank" rel="noopener">非监督文本摘要</a>（简介文本摘要，并介绍了一个非监督文本摘要模型）</li>
+<li><a href="http://m.elecfans.com/article/825864.html" target="_blank" rel="noopener">基于句嵌入进行无监督文本总结的经验</a>（和上一个参考资料介绍了相同的论文）</li>
+<li>前两个参考文献介绍的论文用到的代码：<ul>
+<li><a href="https://github.com/ryankiros/skip-thoughts" target="_blank" rel="noopener">https://github.com/ryankiros/skip-thoughts</a></li>
+<li><a href="https://github.com/sanyam5/skip-thoughts" target="_blank" rel="noopener">https://github.com/sanyam5/skip-thoughts</a></li>
+<li><a href="https://github.com/jatana-research/email-summarization" target="_blank" rel="noopener">https://github.com/jatana-research/email-summarization</a></li>
+</ul>
+</li>
+<li><a href="https://www.jiqizhixin.com/articles/2019-03-25-7" target="_blank" rel="noopener">文本摘要简述</a></li>
+<li><a href="https://blog.csdn.net/u014435314/article/details/81223340" target="_blank" rel="noopener">论文阅读：EmbedRank: Unsupervised Keyphrase Extraction using Sentence Embeddings</a>（介绍得太简略，另外这个论文有<a href="https://github.com/swisscom/ai-research-keyphrase-extraction" target="_blank" rel="noopener">相应代码</a>）</li>
+<li><a href="https://zhuanlan.zhihu.com/p/67078700" target="_blank" rel="noopener">文本摘要的系统性学习（1）</a>（对文本摘要的概括性介绍，内容比较全）</li>
+<li><a href="http://www.geekpark.net/news/215983" target="_blank" rel="noopener">人去做文本摘要都挺困难了，机器要怎么做？</a>(seq2seq+注意力，介绍了文本摘要的一些模型)</li>
+</ol>
+<h1><span id="阅读理解">阅读理解</span></h1><p>参考资料：</p>
+<ol>
+<li><a href="https://blog.csdn.net/yH0VLDe8VG8ep9VGe/article/details/80013584" target="_blank" rel="noopener">猿辅导MSMARCO冠军团队：用MARS模型解决机器阅读任务 | 吃瓜笔记</a></li>
+</ol>
+<h1><span id="文本分类">文本分类</span></h1><h2><span id="模型">模型</span></h2><ol>
+<li>fasttext</li>
+<li>主题模型LDA <a href="https://blog.csdn.net/v_july_v/article/details/41209515" target="_blank" rel="noopener">参考1</a> <a href="https://blog.csdn.net/qq_39422642/article/details/78730662" target="_blank" rel="noopener">参考2</a> <a href="https://blog.csdn.net/huagong_adu/article/details/7937616" target="_blank" rel="noopener">参考3</a> </li>
+</ol>
+<h2><span id="工具">工具</span></h2><ol>
+<li><a href="https://radimrehurek.com/gensim/tutorial.html" target="_blank" rel="noopener">gensim</a></li>
+</ol>
+<h1><span id="问答系统">问答系统</span></h1><h2><span id="方法">方法</span></h2><h3><span id="语义解析semantic-parsing">语义解析（Semantic Parsing）</span></h3><p>语义表示（表示成逻辑形式） + 推理查询（需要用到查询知识库的逻辑语言）。</p>
+<p>语法解析的过程可以看作是自底向上构造语法树的过程，树的根节点，就是该自然语言问题最终的逻辑形式表达。整个流程可以分为两个步骤：</p>
+<ol>
+<li>词汇映射：即构造底层的语法树节点。将单个自然语言短语或单词映射到知识库实体或知识库实体关系所对应的逻辑形式。我们可以通过构造一个词汇表（Lexicon）来完成这样的映射。</li>
+<li>构建（Composition）：即自底向上对树的节点进行两两合并，最后生成根节点，完成语法树的构建。<br>具体方法：组合范畴语法（Combinatory Categorical Grammars，CCG），暴力方法（对两个节点都可以执行Join、Intersection、Aggregate等操作。</li>
+</ol>
+<h3><span id="信息抽取information-extraction">信息抽取（Information Extraction）</span></h3><p>从句子得到实体（NER，依存树，词性标注）（问题词，问题焦点，主题词，中心动词） =》知识库子图 =》节点或边作为候选答案 =》按规则或模板进行匹配（信息抽取）=》得到表征问题或答案的特征向量=》分类器（SVM，感知机，逻辑回归……）得到答案。</p>
+<h3><span id="向量建模vector-modeling">向量建模（Vector Modeling）</span></h3><h3><span id="基于深度学习的方法-通过深度学习对传统的方法进行提升">基于深度学习的方法。通过深度学习对传统的方法进行提升。</span></h3><h2><span id="模型或数据集">模型或数据集</span></h2><ul>
+<li>CNN/Daily Mail（2016）</li>
+<li>Attentive Reader（2016）</li>
+<li>Children Book Test（2016）</li>
+<li>Stanford Attentive Reader（2016）</li>
+<li>SQuAD 1.1（2016）</li>
+<li>Match-LSTM（2017）</li>
+<li>BiDAF（2017）</li>
+<li>TriviaQA（2017）</li>
+<li>R-NET（2017）</li>
+<li>RACE（2017）</li>
+<li>QANet（2018）</li>
+<li>Narrative QA（2018）</li>
+<li>BiDAF+self-attention+ELMo（2018）</li>
+<li>SQuAD 2.0（2018）</li>
+<li>BERT（2018）</li>
+<li>HotpotQA（2018）</li>
+</ul>
+<h2><span id="参考">参考</span></h2><ol>
+<li><a href="https://zhuanlan.zhihu.com/p/27141786" target="_blank" rel="noopener">揭开知识库问答KB-QA的面纱0·导读篇</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/25735572" target="_blank" rel="noopener">揭开知识库问答KB-QA的面纱1·简介篇</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/25759682" target="_blank" rel="noopener">揭开知识库问答KB-QA的面纱2·语义解析篇</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/25782244" target="_blank" rel="noopener">揭开知识库问答KB-QA的面纱3·信息抽取篇</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/25824501" target="_blank" rel="noopener">揭开知识库问答KB-QA的面纱4·向量建模篇</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/25896306" target="_blank" rel="noopener">揭开知识库问答KB-QA的面纱5·深度学习上篇</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/25942766" target="_blank" rel="noopener">揭开知识库问答KB-QA的面纱6·深度学习中篇</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/26181033" target="_blank" rel="noopener">揭开知识库问答KB-QA的面纱7·深度学习下篇（二）</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/26650719" target="_blank" rel="noopener">揭开知识库问答KB-QA的面纱8·非结构化知识篇</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/27105336" target="_blank" rel="noopener">揭开知识库问答KB-QA的面纱9·动态模型篇</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/53796189?edition=yidianzixun&amp;utm_source=yidianzixun&amp;yidian_docid=0L0P0oIV" target="_blank" rel="noopener">基于知识图谱的问答系统入门之—NLPCC2016KBQA数据集</a></li>
+<li><a href="https://www.linkresearcher.com/theses/2663" target="_blank" rel="noopener">KBQA: 基于开放域知识库上的QA系统</a></li>
+</ol>
+<h2><span id="论文参考">论文参考</span></h2><p>语义解析：</p>
+<ol>
+<li>Berant J, Chou A, Frostig R, et al. <em>Semantic Parsing on Freebase from Question-Answer Pairs</em>[C]//EMNLP. 2013, 2(5): 6.</li>
+<li>Cai Q, Yates A. <em>Large-scale Semantic Parsing via Schema Matching and Lexicon Extension</em>[C]//ACL (1). 2013: 423-433.</li>
+<li>Kwiatkowski T, Choi E, Artzi Y, et al. <em>Scaling semantic parsers with on-the-fly ontology matching</em>[C]//In Proceedings of EMNLP. Percy. 2013.</li>
+<li>Fader A, Zettlemoyer L, Etzioni O. <em>Open question answering over curated and extracted knowledge bases</em>[C]//Proceedings of the 20th ACM SIGKDD international conference on Knowledge discovery and data mining. ACM, 2014: 1156-1165.</li>
+<li>Yih S W, Chang M W, He X, et al. <em>Semantic parsing via staged query graph generation: Question answering with knowledge base</em>[J]. 2015. （注 该paper来自微软，是ACL 2015年的Outstanding paper，也是目前KB-QA效果最好的paper之一）</li>
+</ol>
+<p>信息抽取：</p>
+<ol>
+<li>Yao X, Van Durme B. <em>Information Extraction over Structured Data: Question Answering with Freebase</em>[C]//ACL (1). 2014: 956-966.</li>
+</ol>
+<p>向量建模方法：</p>
+<ol>
+<li>Bordes A, Chopra S, Weston J. <em>Question answering with subgraph embeddings</em>[J]. arXiv preprint arXiv:1406.3676, 2014.</li>
+<li>Yang M C, Duan N, Zhou M, et al. <em>Joint Relational Embeddings for Knowledge-based Question Answering[</em>C]//EMNLP. 2014, 14: 645-650.</li>
+<li>Bordes A, Weston J, Usunier N. <em>Open question answering with weakly supervised embedding models</em>[C]//Joint  European Conference on Machine Learning and Knowledge Discovery in  Databases. Springer Berlin Heidelberg, 2014: 165-180.</li>
+<li>Dong L, Wei F, Zhou M, et al. <em>Question Answering over Freebase with Multi-Column Convolutional Neural Networks</em>[C]//ACL (1). 2015: 260-269.</li>
+</ol>
+<p>使用LSTM、CNNs进行实体关系分类：</p>
+<ol>
+<li>Xu Y, Mou L, Li G, et al. <em>Classifying Relations via Long Short Term Memory Networks along Shortest Dependency Paths</em>[C]//EMNLP. 2015: 1785-1794.</li>
+<li>Zeng D, Liu K, Lai S, et al. <em>Relation Classification via Convolutional Deep Neural Network</em>[C]//COLING. 2014: 2335-2344.（Best paper）</li>
+<li>Zeng D, Liu K, Chen Y, et al. <em>Distant Supervision for Relation Extraction via Piecewise Convolutional Neural Networks</em>[C]//EMNLP. 2015: 1753-1762.</li>
+</ol>
+<p>使用记忆网络（Memory Networks），注意力机制（Attention Mechanism）进行KB-QA：</p>
+<ol>
+<li>Bordes A, Usunier N, Chopra S, et al. <em>Large-scale simple question answering with memory networks</em>[J]. arXiv preprint arXiv:1506.02075, 2015.</li>
+<li>Zhang Y, Liu K, He S, et al. <em>Question Answering over Knowledge Base with Neural Attention Combining Global Knowledge Information</em>[J]. arXiv preprint arXiv:1606.00979, 2016.</li>
+</ol>
+<h1><span id="命名实体识别ner">命名实体识别NER</span></h1><h2><span id="方法">方法</span></h2><p>NER模型发展历史：MLP-&gt;LSTM-&gt;LSTM/CNN+CRF-&gt;BiLSTM+CRF- &gt;BiLSTM+CNN+CRF</p>
+<h2><span id="参考">参考</span></h2><ol>
+<li>[命名实体识别（NER）的二三事 | 每周话题精选 #01 </li>
+</ol>
+<h1><span id="句向量">句向量</span></h1><h2><span id="模型">模型</span></h2><ol>
+<li>词袋模型<ul>
+<li>基于统计：BoW</li>
+<li>基于词向量：均值模型（Power Mean），加权模型（SIF）</li>
+</ul>
+</li>
+<li>无监督模型<ul>
+<li>Skip-Thought Vectors（2015）</li>
+<li>Quick-Thought Vectors（2018）</li>
+</ul>
+</li>
+<li>有监督模型<ul>
+<li>InferSent（2017）</li>
+<li>Self-attention（2017）</li>
+<li>DAN &amp; RecNN（2015）</li>
+</ul>
+</li>
+<li>多任务学习<ul>
+<li>基于多任务的 Sentence Embedding（微软）</li>
+<li>Universal Sentence Encoder（谷歌）（2018）</li>
+</ul>
+</li>
+</ol>
+
+    </div>
+</article>
+                </main>
+                <aside class="aside">
+                    <section class="aside-section">
+                        
+    <h1>Categories</h1>
+
+    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/计算机/">计算机</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/计算机/数学/">数学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机/机器学习/">机器学习</a></li></ul></li></ul>
+
+                    </section>
+                    <section class="aside-section">
+                        
+    <h1>Archives</h1>
+
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a></li></ul>
+
+
+                    </section>
+                    <section class="aside-section tag">
+                        
+    <h1>Tags</h1>
+
+    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据集/">数据集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/清单/">清单</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自然语言处理/">自然语言处理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/论文/">论文</a></li></ul>
+
+                    </section>
+                </aside>
+        </div>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+
+</html>
